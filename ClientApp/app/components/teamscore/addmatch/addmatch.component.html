@@ -1,0 +1,22 @@
+﻿<div class="col-md-4" *ngIf="teams">
+    <div class="form-group" id="AddMatch">
+        <label for="i_select_teamname1">Add Match</label>
+        <br>
+        <select class="form-control" id="i_select_teamname1">
+            <option *ngFor="let team of teams">
+                {{team.Name}}
+            </option>
+        </select>
+        <input type="text" class="form-control" id="input_goals_t1" placeholder="Goals" />
+        <br />
+        <select class="form-control" id="i_select_teamname2">
+            <option *ngFor="let team of teams">
+                {{team.Name}}
+            </option>
+        </select>
+        <input type="text" class="form-control" id="input_goals_t2" placeholder="Goals" />
+
+
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>

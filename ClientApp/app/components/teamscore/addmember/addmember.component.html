@@ -1,0 +1,20 @@
+﻿<div class="col-md-4" *ngIf="model">
+    <form (ngSubmit)="onSubmit()" #addMemberForm="ngForm"
+          id="AddMember">
+        <div class="form-group">
+            <label for="i_member">Add Member</label>
+            <input type="text" class="form-control" id="name" placeholder="Name"
+                   required
+                   [(ngModel)]="model.name" name="name"
+                   #name="ngModel" />
+
+        </div>
+
+        <button (click)="doSomething()"
+                type="submit" class="btn btn-primary"
+                [disabled]="!addMemberForm.form.valid || submitted">
+            Submit
+        </button>
+        {{clicked}}
+    </form>
+</div>

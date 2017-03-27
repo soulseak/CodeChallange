@@ -1,0 +1,21 @@
+﻿<div *ngIf="teams">
+    <table class="table">
+        <tr>
+            <th>
+                Teamname
+            </th>
+            <th>
+                TeamScore
+            </th>
+        </tr>
+        <tr *ngFor="let team of teams">
+            <td>
+                {{team.Name}}
+            </td>
+            <td>
+                {{team.TeamScore}}
+            </td>
+        </tr>
+
+    </table>
+</div>

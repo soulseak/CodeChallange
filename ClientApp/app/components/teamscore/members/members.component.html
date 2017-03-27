@@ -1,0 +1,12 @@
+﻿<div *ngIf="members">
+      
+<table class="table">
+    <tr>
+        <th>
+            Member
+        </th>
+    <tr *ngFor="let member of members">
+        <td>{{member.name}}</td>
+    </tr>
+</table>
+</div>

@@ -1,0 +1,12 @@
+﻿<div class="col-md-4" *ngIf="members">
+      
+    <div class="form-group" id="AddTeam">
+        <label for="i_teamname">Add Team</label>
+        <input type="text" class="form-control" id="i_teamname" placeholder="Team" />
+        <select class="form-control" id="i_select_member">
+            <option *ngFor="let member of members"> {{member.name}}</option>
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>
