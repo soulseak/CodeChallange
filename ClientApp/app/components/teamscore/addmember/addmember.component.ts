@@ -28,6 +28,7 @@ export class AddMemberComponent {
         this.http.post("/api/Member/Create/", body, options)
             .map(res => res.json)
             .subscribe();
+
     }
 
 }
