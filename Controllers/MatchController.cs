@@ -13,24 +13,24 @@ namespace Team.Controllers
     
     public class ExportMatch
     {
-        public int MatchID { get; set; }
-        public int TeamID1 { get; set; }
+        public int MatchId { get; set; }
+        public int Team1Id { get; set; }
         public String TeamName1 { get; set; }
-        public int TeamID2 { get; set; }
+        public int Team2Id { get; set; }
         public String TeamName2 { get; set; }
-        public int TeamScore1 { get; set; }
-        public int TeamScore2 { get; set; }
+        public int ScoreTeam1 { get; set; }
+        public int ScoreTeam2 { get; set; }
 
 
         public ExportMatch(int id, int tid1, String tna1, int tid2, String tna2, int ts1, int ts2)
         {
-            MatchID = id;
-            TeamID1 = tid1;
+            MatchId = id;
+            Team1Id = tid1;
             TeamName1 = tna1;
-            TeamID2 = tid2;
+            Team2Id = tid2;
             TeamName2 = tna2;
-            TeamScore1 = ts1;
-            TeamScore2 = ts2;
+            ScoreTeam1 = ts1;
+            ScoreTeam2 = ts2;
         }
     }
 

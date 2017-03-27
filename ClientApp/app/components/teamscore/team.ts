@@ -3,7 +3,7 @@ export interface Team {
 
     TeamId: string,
     Name: string,
-    MemberID: string,
+    MemberId: string,
     MemberName: string,
     TeamScore: number
 

@@ -5,16 +5,15 @@
             <label for="i_member">Add Member</label>
             <input type="text" class="form-control" id="name" placeholder="Name"
                    required
-                   [(ngModel)]="model.name" name="name"
+                   [(ngModel)]="model.Name" name="name"
                    #name="ngModel" />
 
         </div>
 
-        <button (click)="doSomething()"
+        <button (click)="addMember()"
                 type="submit" class="btn btn-primary"
                 [disabled]="!addMemberForm.form.valid || submitted">
             Submit
         </button>
-        {{clicked}}
     </form>
 </div>

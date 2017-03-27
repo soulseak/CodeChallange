@@ -11,17 +11,17 @@ namespace Team.Controllers
 {
     public class ExportTeam
     {
-        public int TeamID { get; set; }
+        public int TeamId { get; set; }
         public String Name { get; set; }
-        public int MemberID { get; set; }
+        public int MemberId { get; set; }
         public String MemberName { get; set; }
         public int TeamScore { get; set; }
 
         public ExportTeam(int id, String na, int m_id, String m_na, int ts)
         {
-            TeamID = id;
+            TeamId = id;
             Name = na;
-            MemberID = m_id;
+            MemberId = m_id;
             MemberName = m_na;
             TeamScore = ts;
 
@@ -61,20 +61,20 @@ namespace Team.Controllers
                 teamScore = 0;
                 foreach (var match in matches)
                 {
-                    if (match.Team1Id.TeamId == team.TeamID && match.ScoreTeam1 > match.ScoreTeam2)
+                    if (match.Team1Id.TeamId == team.TeamId && match.ScoreTeam1 > match.ScoreTeam2)
                     {
                         teamScore += match.ScoreTeam1 + 10;
                     }
-                    else if (match.Team1Id.TeamId == team.TeamID && match.ScoreTeam1 < match.ScoreTeam2)
+                    else if (match.Team1Id.TeamId == team.TeamId && match.ScoreTeam1 < match.ScoreTeam2)
                     {
                         teamScore += match.ScoreTeam1 + 5;
                     }
 
-                    if (match.Team2Id.TeamId == team.TeamID && match.ScoreTeam2 > match.ScoreTeam1)
+                    if (match.Team2Id.TeamId == team.TeamId && match.ScoreTeam2 > match.ScoreTeam1)
                     {
                         teamScore += match.ScoreTeam2 + 10;
                     }
-                    else if (match.Team2Id.TeamId == team.TeamID && match.ScoreTeam2 < match.ScoreTeam1)
+                    else if (match.Team2Id.TeamId == team.TeamId && match.ScoreTeam2 < match.ScoreTeam1)
                     {
                         teamScore += match.ScoreTeam2 + 5;
                     }

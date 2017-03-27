@@ -11,6 +11,20 @@ using CodeChallange.Models;
 namespace Team.Controllers
 {
 
+    public class ExportMember
+    {
+        public int MemberId { get; set; }
+        public string Name { get; set; }
+       
+
+
+        public ExportMember(int id, String mna1)
+        {
+            MemberId = id;
+            Name = mna1;
+        }
+    }
+
     [Route("api/[controller]")]
     public class MemberController : Controller
     {
@@ -37,7 +51,7 @@ namespace Team.Controllers
         [HttpPost("[action]")]
         public IActionResult Create([FromBody] Member item)
         {
-            if (item == null)
+            if (item == null || item.Name == null)
             {
                 return BadRequest();
             }
