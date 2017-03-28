@@ -31,7 +31,9 @@ export class AddMatchComponent {
     submitted = false;
 
     onSubmit() { this.submitted = true; }
-    public addMember() {
+    
+    public addMatch() {
+
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         let body = JSON.stringify(this.model);

@@ -55,6 +55,10 @@ namespace Team.Controllers
             {
                 return BadRequest();
             }
+            if(_TeamscoreContext.Members.Where(m => m.Name == item.Name) != null)
+            {
+                return BadRequest("Member already Exists");
+            }
 
             _TeamscoreContext.Members.Add(item);
             _TeamscoreContext.SaveChanges();

@@ -4,10 +4,11 @@
         <div class="form-group">
             <label for="i_select_teamname1">Add Match</label>
             <br>
-            <select class="form-control" id="i_select_teamname1">
+            <select [(ngModel)]="model.Team1Id" name="i_select_teamname1"
+                    class="form-control" id="i_select_teamname1">
                 <option *ngFor="let team of teams"
                         required
-                        [(ngModel)]="model.TeamName1" name="i_select_teamname1">
+                        [value]="team.TeamId">
                     {{team.Name}}
                 </option>
             </select>
@@ -15,10 +16,11 @@
                    required
                    [(ngModel)]="model.ScoreTeam1" name="i_goals_t1" />
             <br />
-            <select class="form-control" id="i_select_teamname2">
+            <select [(ngModel)]="model.Team2Id" name="i_select_teamname2"
+                    class="form-control" id="i_select_teamname2">
                 <option *ngFor="let team of teams"
                         required
-                        [(ngModel)]="model.TeamName2" name="i_select_teamname2">
+                        [value]="team.TeamId">
                     {{team.Name}}
                 </option>
             </select>
@@ -26,9 +28,12 @@
                    required
                    [(ngModel)]="model.ScoreTeam2" name="i_goals_t2" />
         </div>
+        <div *ngIf="addMatchForm.form.valid && model.Team1Id == model.Team2Id" class="form-control alert-danger">
+            Teams cant Match
+        </div>
         <button (click)="addMatch()"
                 type="submit" class="btn btn-primary"
-                [disabled]="!addMatchForm.form.valid || submitted">
+                [disabled]="!addMatchForm.form.valid || submitted || model.Team1Id == model.Team2Id">
             Submit
         </button>
     </form>

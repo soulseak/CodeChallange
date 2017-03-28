@@ -68,6 +68,26 @@ namespace Team.Controllers
             var json = JsonConvert.SerializeObject(ExportMatches);
             return Ok(json);
         }
+        [HttpPost("[action]")]
+        public IActionResult Create([FromBody] ExportMatch item)
+        {
+            if (item == null)
+            {
+                return BadRequest();
+            }
 
+            var team1 = _TeamscoreContext.Teams.Where(t => t.TeamId == item.Team1Id).First();
+            var team2 = _TeamscoreContext.Teams.Where(t => t.TeamId == item.Team2Id).First();
+
+            if(team1 == null || team2 == null)
+            {
+                return BadRequest("Teams doesnt Exist");
+            }
+
+            Match match = new Match() { MatchId = 0, Team1Id = team1, Team2Id = team2, ScoreTeam1 = item.ScoreTeam1, ScoreTeam2 = item.ScoreTeam2 };
+            _TeamscoreContext.Matches.Add(match);
+            _TeamscoreContext.SaveChanges();
+            return Ok(item);
+        }
     }
 }
