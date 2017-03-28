@@ -1,9 +1,9 @@
 ﻿
 export interface Team {
 
-    TeamId: string,
+    TeamId: number,
     Name: string,
-    MemberId: string,
+    MemberId: number,
     MemberName: string,
     TeamScore: number
 

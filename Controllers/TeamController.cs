@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using CodeChallange.Models;
 
-namespace Team.Controllers
+namespace Teamscore.Controllers
 {
     public class ExportTeam
     {
@@ -85,6 +85,26 @@ namespace Team.Controllers
 
             var json = JsonConvert.SerializeObject(ExportTeams);
             return Ok(json);
+        }
+        [HttpPost("[action]")]
+        public IActionResult Create([FromBody] ExportTeam item)
+        {
+            if (item == null)
+            {
+                return BadRequest();
+            }
+
+            var member = _TeamscoreContext.Members.Where(m => m.MemberId == item.MemberId).First();
+            
+            if (member == null)
+            {
+                return BadRequest("Member doesnt Exist");
+            }
+
+            Team team= new Team() { TeamId = 0, Name = item.Name, Member = member };
+            _TeamscoreContext.Teams.Add(team);
+            _TeamscoreContext.SaveChanges();
+            return Ok(item);
         }
     }
 }

@@ -1,30 +1,40 @@
-﻿import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+﻿import { Component } from '@angular/core';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
+import { Observable } from "rxjs/Rx";
 
 import { Member } from '../Member';
 import { Team } from '../Team';
 import { Match } from '../Match';
-import { teamscoreService} from '../teamscore.service'
 @Component({
     selector: 'addteam',
-    providers: [teamscoreService],
     template: require('./addteam.component.html')
 })
-export class AddTeamComponent /*implements OnInit*/ {
+export class AddTeamComponent {
     public members: Member[];
-    constructor(http: Http) {
+    constructor(private http: Http) {
         http.get('/api/Member/Member').subscribe(result => {
             this.members = result.json() as Member[];
         });
     }
-    //constructor(private _teamscoreService: teamscoreService) { }
+    model: Team = {
+        TeamId:0,
+        Name:'',
+        MemberId:0,
+        MemberName:'',
+        TeamScore:0
+    };
 
-    //getMembers() {
-    //    this._teamscoreService.getMembers().then(members => this.members = members);
-    //}
+    submitted = false;
 
-    //ngOnInit(): void {
-        
-    //    this.getMembers();
-    //}
+    onSubmit() { this.submitted = true; }
+
+    public addTeam() {
+
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        let body = JSON.stringify(this.model);
+        this.http.post("/api/Team/Create/", body, options)
+            .subscribe();
+        console.log("done");
+    }
 }

@@ -17,7 +17,7 @@ import { AddTeamComponent } from './components/teamscore/addteam/addteam.compone
 import { MatchesComponent } from './components/teamscore/matches/matches.component';
 import { TeamsComponent } from './components/teamscore/teams/teams.component';
 import { MembersComponent } from './components/teamscore/members/members.component';
-
+import { AddingComponent } from './components/teamscore/adding.component';
 
 
 @NgModule({
@@ -34,7 +34,8 @@ import { MembersComponent } from './components/teamscore/members/members.compone
         AddTeamComponent,
         MatchesComponent,
         TeamsComponent,
-        MembersComponent
+        MembersComponent,
+        AddingComponent
     ],
     imports: [
         BrowserModule,
@@ -43,9 +44,10 @@ import { MembersComponent } from './components/teamscore/members/members.compone
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
+            //{ path: 'counter', component: CounterComponent },
+            //{ path: 'fetch-data', component: FetchDataComponent },
             { path: 'teamscore', component: TeamscoreComponent },
+            { path: 'adding', component: AddingComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]

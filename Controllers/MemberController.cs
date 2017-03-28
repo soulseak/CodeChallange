@@ -7,8 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using CodeChallange.Models;
 
-
-namespace Team.Controllers
+namespace Teamscore.Controllers
 {
 
     public class ExportMember
